@@ -25,7 +25,7 @@ services:
       - ./camel-frontend/:/usr/src/app/client 
     environment:
       NODE_ENV: development
-      API_URL: localhost:8000
+      API_URL: http://localhost:8000
     stdin_open: true
     tty: true
   db:
