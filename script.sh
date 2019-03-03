@@ -16,4 +16,4 @@ fi
 
 git clone git@github.com:adilsaeed31/camel-race.git camel-frontend
 
-docker-compose up --build
+docker-compose up -d --build
