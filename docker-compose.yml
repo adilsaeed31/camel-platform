@@ -5,11 +5,12 @@ services:
       context: camel-backend
       target: development
     depends_on:
-      - db  
-    ports: 
+      - db
+    ports:
       - 8000:8000
     volumes:
-      - ./camel-backend/:/usr/src/app/server
+      - ./camel-backend:/usr/src/app/server
+      - backend-node-modules:/usr/src/app/server/node_modules
     environment:
       NODE_ENV: development
       MONGO_URL: mongodb://db:27017/camel
@@ -17,12 +18,13 @@ services:
     tty: true
   frontend:
     build:
-      context: ./camel-frontend
+      context: camel-frontend
       target: development
     ports:
       - 3000:3000
     volumes:
-      - ./camel-frontend/:/usr/src/app/client 
+      - ./camel-frontend:/usr/src/app/client
+      - frontend-node-modules:/usr/src/app/client/node_modules
     environment:
       NODE_ENV: development
       API_URL: http://localhost:8000
@@ -35,4 +37,6 @@ services:
     volumes:
       - dbdata:/data/db
 volumes:
-  dbdata:    
+  dbdata:
+  frontend-node-modules:
+  backend-node-modules:
