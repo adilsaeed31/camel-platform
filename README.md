@@ -7,7 +7,7 @@
 - NodeJs
 - Docker
 - Git
-
+- You need add your public key to your github account to clone the project first.
 Above are the minimum requirements without those project will not work as camel platform with docker.
 
 ## Features
